@@ -1,21 +1,30 @@
-import { useState } from 'react';
 import './App.css';
+import { useEffect, useState } from 'react';
+import ModelDisplay from './ModelDisplay';
 
-function App() {
-  const [count, setCount] = useState(0);
+
+const App = () => {
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    if (!loaded) {
+      setLoaded(true);
+      console.log('height is', window.innerHeight)
+      document.documentElement.style.setProperty('--actual-height', window.innerHeight + 'px');
+    }
+  }, [loaded]);
 
   return (
-    <>
-      <h1>{'Tools for Loren :)'}</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-    </>
+    <div id='home-container'>
+      <header>        
+        <h1>{'Tools for Loren :)'}</h1>
+      </header>
+      <main>
+        <ModelDisplay color={'red'} />
+      </main>
+      <footer>
+        <h4>Website by <a href='https://mikedonovan.dev'>mike@mikedonovan.dev</a></h4>
+      </footer>
+    </div>
   )
 }
 
