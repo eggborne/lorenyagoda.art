@@ -1,4 +1,3 @@
-import './App.css';
 import { Canvas } from '@react-three/fiber';
 import TestBox from './components/TestBox'
 

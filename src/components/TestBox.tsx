@@ -8,6 +8,7 @@ export default function TestBox(props: ThreeElements['mesh']) {
   const [hovered, hover] = useState(false)
   const [clicked, click] = useState(false)
   useFrame((state, delta) => {
+    state;
     ref.current.rotation.z += (delta  * 2);
     ref.current.rotation.x += delta;
   })
